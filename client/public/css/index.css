@@ -1,0 +1,25 @@
+:root{
+	--background: #111111;
+	--red: rgba(237, 64, 37, 1);
+}
+
+body{
+	background-color: var(--background);
+	color: white;
+	width: 95%;
+}
+
+header > section{
+	width: 100%;
+}
+header > section > img{
+	height: 200px;
+}
+header .legal-boilerplate{
+	background-color: var(--red);
+}
+header .legal-boilerplate input[type="button"]{
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
