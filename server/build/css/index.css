@@ -1,0 +1,24 @@
+:root{
+	--background: #111111;
+	--red: rgba(237, 64, 37, 1);
+}
+
+body{
+	background-color: var(--background);
+	color: white;
+}
+
+header .legal-boilerplate{
+	background-color: var(--red);
+}
+header .legal-boilerplate input[type="button"]{
+	background-color: transparent;
+	border: none;
+	color: inherit;
+}
+header h1{
+	text-align: center;
+}
+header > .tiles > img{
+	height: 200px;
+}
