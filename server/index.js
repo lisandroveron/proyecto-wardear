@@ -3,6 +3,7 @@ const app = express();
 const { join } = require("path");
 const glob = require("glob");
 
+app.use(express.static(join(__dirname, "build")));
 app.use("/assets", express.static(join(__dirname, "assets")));
 
 app.get("/getTiles", (req, res) => {
@@ -19,6 +20,8 @@ app.get("/getTiles", (req, res) => {
 		res.send(results);
 	});
 });
+
+
 
 const port = process.env.PORT || 5000;
 app.listen(port, () => {
