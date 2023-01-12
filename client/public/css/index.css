@@ -6,15 +6,8 @@
 body{
 	background-color: var(--background);
 	color: white;
-	width: 95%;
 }
 
-header > section{
-	width: 100%;
-}
-header > section > img{
-	height: 200px;
-}
 header .legal-boilerplate{
 	background-color: var(--red);
 }
@@ -22,4 +15,10 @@ header .legal-boilerplate input[type="button"]{
 	background-color: transparent;
 	border: none;
 	color: inherit;
+}
+header h1{
+	text-align: center;
+}
+header > .tiles > img{
+	height: 200px;
 }

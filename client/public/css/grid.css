@@ -2,6 +2,7 @@ body{
 	display: grid;
 	grid-template-columns: 95%;
 	grid-template-rows: repeat(auto-fill, auto);
+	justify-content: center;
 }
 
 header > section{
