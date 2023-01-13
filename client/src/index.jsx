@@ -5,7 +5,7 @@ function App(){
 	const [path_tiles, setPathTiles] = useState([]);
 
 	useEffect(() => {
-		// getAssets("tiles", "*_0.jpg", setPathTiles);
+		getAssets("tiles", "*_0.jpg", setPathTiles);
 	}, []);
 
 	// Functions
