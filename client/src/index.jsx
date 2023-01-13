@@ -6,17 +6,29 @@ function App(){
 	const [path_tiles, setPathTiles] = useState([]);
 
 	useEffect(() => {
-		fetch("/getTiles")
-			.then(response => response.json())
-			.then(data => {
-				for(let path of data){
-					setPathTiles(oldArray => [...oldArray, path]);
-				};
-				setReady(true);
-			});
+		getAssets("tiles", "*_0.jpg", setPathTiles);
 	}, []);
 
 	// Functions
+	function getAssets(resource, pattern, updateMethod){
+		fetch("/getAssets", {
+			method: "POST",
+			headers: {'Content-Type': 'application/json'},
+			body: JSON.stringify({
+				"resource": resource,
+				"pattern": pattern
+			})
+		})
+			.then(response => response.json())
+			.then(data => {
+				console.log(data);
+				for(let path of data){
+					updateMethod(oldArray => [...oldArray, path]);
+				};
+				setReady(true);
+			});
+	};
+
 	function removeParent(tag){
 		tag.target.parentElement.remove();
 	};
