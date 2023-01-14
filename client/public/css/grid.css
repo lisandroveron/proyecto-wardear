@@ -1,13 +1,30 @@
-body{
-	display: grid;
-	grid-template-columns: 95%;
-	grid-template-rows: repeat(auto-fill, auto);
-	justify-content: center;
+#root{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	row-gap: calc(var(--spacing) * 2);
 }
 
+header{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	row-gap: var(--spacing);
+}
 header > section{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	overflow-x: auto;
+}
+
+main{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	row-gap: var(--spacing);
+}
+
+footer p{
+	text-align: center;
 }
