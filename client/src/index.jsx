@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
+import GuideCard from "./components/GuideCard/GuideCard.jsx";
 
 function App(){
 	const [path_tiles, setPathTiles] = useState([]);
@@ -20,7 +21,6 @@ function App(){
 		})
 			.then(response => response.json())
 			.then(data => {
-				console.log(data);
 				for(let path of data){
 					updateFunction(oldArray => [...oldArray, path]);
 				};
@@ -41,7 +41,20 @@ function App(){
 				{path_tiles.map((path, index) => <img key={`tile-${index}`} src={`/${path}`} alt="" />)}
 			</section>
 		</header>
-		<main></main>
+		<main>
+			<h2>Guías</h2>
+			<GuideCard />
+			<GuideCard />
+			<GuideCard />
+			<GuideCard />
+			<GuideCard />
+			<GuideCard />
+			<GuideCard />
+			<GuideCard />
+		</main>
+		<footer>
+			<p>Proyecto Wardear © Todos los derechos reservados. 2023</p>
+		</footer>
 	</>);
 };
 

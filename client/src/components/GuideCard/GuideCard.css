@@ -1,0 +1,19 @@
+/* - - - - - G R I D - - - - - */
+.GuideCard{
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto 1fr;
+}
+/* - - - - - G R I D - - - - - */
+
+/* - - - - - S T Y L E S - - - - - */
+.GuideCard{
+	background-color: var(--darkviolet);
+	padding: var(--spacing);
+}
+.GuideCard div{
+	background-color: lightgreen;
+	height: 100px;
+	width: 100px;
+}
+/* - - - - - S T Y L E S - - - - - */
