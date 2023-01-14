@@ -1,11 +1,19 @@
 :root{
+	/* Colours */
 	--background: #111111;
+	--darkgreen: rgba(35, 76, 58, 1);
+	--darkviolet: rgba(19, 17, 54, 1);
 	--red: rgba(237, 64, 37, 1);
-}
+	--violet: rgba(49, 12, 77, 1);
 
+	/* Vars */
+	--spacing: 10px;
+}
 body{
 	background-color: var(--background);
 	color: white;
+	margin: auto;
+	width: 95%;
 }
 
 header .legal-boilerplate{
