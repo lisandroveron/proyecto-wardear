@@ -19,10 +19,25 @@ header > section{
 }
 
 main{
+	flex-grow: 1;
+}
+main, main section{
 	display: flex;
 	flex-direction: column;
 	flex-wrap: nowrap;
 	row-gap: var(--spacing);
+}
+main .search{
+	display: grid;
+	grid-template-rows: auto;
+	grid-template-columns: 1fr auto;
+	column-gap: var(--spacing);
+}
+main .search input[type="button"]{
+	width: 3em;
+	height: 3em;
+	border: none;
+	background-color: var(--green);
 }
 
 footer p{

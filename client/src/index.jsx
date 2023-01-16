@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
-import GuideCard from "./components/GuideCard/GuideCard.jsx";
+import {BrowserRouter, Routes, Route} from "react-router-dom";
+import Home from "./routes/Home.jsx";
+import GuideMaker from "./routes/GuideMaker.jsx";
 
 function App(){
 	const [path_tiles, setPathTiles] = useState([]);
@@ -42,15 +44,12 @@ function App(){
 			</section>
 		</header>
 		<main>
-			<h2>Guías</h2>
-			<GuideCard />
-			<GuideCard />
-			<GuideCard />
-			<GuideCard />
-			<GuideCard />
-			<GuideCard />
-			<GuideCard />
-			<GuideCard />
+			<BrowserRouter>
+				<Routes>
+					<Route exact path="/" element={<Home />} />
+					<Route exact path="/GuideMaker" element={<GuideMaker />} />
+				</Routes>
+			</BrowserRouter>
 		</main>
 		<footer>
 			<p>Proyecto Wardear © Todos los derechos reservados. 2023</p>
