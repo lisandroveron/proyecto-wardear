@@ -11,6 +11,10 @@ header{
 	flex-wrap: nowrap;
 	row-gap: var(--spacing);
 }
+header .legal-boilerplate{
+	display: flex;
+	flex-direction: row;
+}
 header .tiles{
 	display: flex;
 	flex-direction: row;
