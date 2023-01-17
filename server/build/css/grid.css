@@ -11,7 +11,11 @@ header{
 	flex-wrap: nowrap;
 	row-gap: var(--spacing);
 }
-header > section{
+header .legal-boilerplate{
+	display: flex;
+	flex-direction: row;
+}
+header .tiles{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -27,19 +31,20 @@ main, main section{
 	flex-wrap: nowrap;
 	row-gap: var(--spacing);
 }
-main .search{
-	display: grid;
-	grid-template-rows: auto;
-	grid-template-columns: 1fr auto;
-	column-gap: var(--spacing);
-}
-main .search input[type="button"]{
-	width: 3em;
-	height: 3em;
-	border: none;
+.router{
+	align-items: center;
 	background-color: var(--green);
+	color: inherit;
+	display: flex;
+	font-size: 2em;
+	height: 3rem;
+	justify-content: center;
+	width: 3rem;
 }
-
+input, .router{
+	border-radius: 5px;
+	border: none;
+}
 footer p{
 	text-align: center;
 }
