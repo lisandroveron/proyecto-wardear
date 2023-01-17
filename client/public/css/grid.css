@@ -5,7 +5,7 @@
 	row-gap: calc(var(--spacing) * 2);
 }
 
-header, main{
+header, main > *, #login{
 	display: flex;
 	flex-direction: column;
 	row-gap: var(--spacing);
