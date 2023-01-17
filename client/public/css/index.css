@@ -25,6 +25,9 @@ body{
 body a{
 	text-decoration: none;
 }
+body input[type="search"]{
+	padding: var(--padding);
+}
 
 header .legal-boilerplate{
 	background-color: var(--red);
@@ -39,8 +42,4 @@ header h1{
 }
 header .tiles > img{
 	height: 200px;
-}
-
-main input{
-	display: inline;
 }
