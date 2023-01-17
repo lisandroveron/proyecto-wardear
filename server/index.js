@@ -7,8 +7,11 @@ const { join } = require("path");
 const app = express();
 const port = process.env.PORT || 5000;
 const client = new MongoClient(process.env.DATABASE_URL);
+// DATABASE
 initDB().catch(console.error);
 const db = client.db();
+// DATABASE COLLECTIONS
+const users = db.collection("users");
 
 app.listen(port, () => {
 	console.log(`Listening on port ${port}.`);
@@ -18,7 +21,19 @@ app.use(express.json());
 app.use(express.static(join(__dirname, "build")));
 app.use("/assets", express.static(join(__dirname, "assets")));
 
-// HTTP METHODS
+// HTTP Endpoints
+app.post("/login", (req, res) => {
+	users.findOne({
+		username: req.body.username,
+		password: req.body.password,
+	}).then(promise => {
+		if(promise == null){
+			res.send({"verified": false});
+		}else{
+			res.send({"verified": true});
+		};
+	});
+});
 app.post("/getAssets", (req, res) => {
 	const resource = req.body.resource;
 	const pattern = req.body.pattern;
@@ -37,9 +52,6 @@ app.post("/getAssets", (req, res) => {
 	});
 });
 
-// DATABASE
-const users = db.collection("users");
-
 // FUNCTIONS
 async function initDB(){
 	try{
@@ -47,6 +59,6 @@ async function initDB(){
 	}catch(err){
 		console.error(err);
 	}finally{
-		await client.close();
+		// await client.close();
 	};
 };
