@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   version="1.1"
+   id="svg76"
+   width="196"
+   height="196"
+   viewBox="0 0 196 196"
+   sodipodi:docname="project-blue.svg"
+   inkscape:version="1.2.1 (9c6d41e410, 2022-07-14)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs80" />
+  <sodipodi:namedview
+     id="namedview78"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="4.3367347"
+     inkscape:cx="81.282353"
+     inkscape:cy="98"
+     inkscape:window-width="1920"
+     inkscape:window-height="1029"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <g
+     inkscape:groupmode="layer"
+     id="layer1"
+     inkscape:label="New">
+    <path
+       style="fill:#00cdfd;stroke:#00cdfd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="M 2.8347336,31.567366 42.65871,54.55975 90.335348,137.10559 v 45.73371 z"
+       id="path1468" />
+    <path
+       style="fill:#00cdfd;stroke:#00cdfd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="M 133.73318,56.895916 97.33059,119.94706 60.64904,56.412747 Z"
+       id="path1470" />
+    <path
+       style="fill:#00cdfd;stroke:#00cdfd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="m 191.214,31.394242 -39.83635,22.999528 -48.00489,82.59772 v 45.60505 z"
+       id="path1472" />
+    <path
+       style="fill:#00cdfd;stroke:#00cdfd;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;fill-opacity:1"
+       d="M 9.406252,18.923323 H 184.60373 L 144.27561,42.20677 H 48.666306 Z"
+       id="path1604" />
+  </g>
+</svg>
