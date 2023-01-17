@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
-import Home from "./routes/Home.jsx";
-import GuideMaker from "./routes/GuideMaker.jsx";
+import Home from "./routes/Home/Home.jsx";
+import GuideMaker from "./routes/GuideMaker/GuideMaker.jsx";
 
 function App(){
 	const [path_tiles, setPathTiles] = useState([]);
@@ -39,9 +39,9 @@ function App(){
 				<input type="button" value="X" onClick={removeParent} />
 			</section>
 			<h1>Proyecto Wardear</h1>
-			<section className="tiles">
+			<div className="tiles">
 				{path_tiles.map((path, index) => <img key={`tile-${index}`} src={`/${path}`} alt="" />)}
-			</section>
+			</div>
 		</header>
 		<main>
 			<BrowserRouter>
