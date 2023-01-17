@@ -43,3 +43,17 @@ header h1{
 header .tiles > img{
 	height: 200px;
 }
+.router{
+	background-color: var(--green);
+	color: inherit;
+	font-size: 2em;
+	height: 3rem;
+	width: 3rem;
+}
+input, .router{
+	border-radius: 5px;
+	border: none;
+}
+footer p{
+	text-align: center;
+}
