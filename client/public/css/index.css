@@ -3,12 +3,14 @@
 	--background: #111111;
 	--darkgreen: rgba(35, 76, 58, 1);
 	--darkviolet: rgba(19, 17, 54, 1);
+	
 	--blue: rgba(64, 87, 232, 1);
 	--green: rgba(16, 181, 27, 1);
 	--red: rgba(232, 64, 64, 1);
 	--violet: rgba(49, 12, 77, 1);
 
 	/* Vars */
+	--padding: 10px;
 	--spacing: 10px;
 }
 #root{

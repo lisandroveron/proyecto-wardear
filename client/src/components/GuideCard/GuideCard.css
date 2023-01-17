@@ -1,18 +1,29 @@
 /* - - - - - G R I D - - - - - */
 .GuideCard{
 	display: grid;
+	grid-template-areas: "title icon"
+						 "description icon";
 	grid-template-columns: 1fr auto;
-	grid-template-rows: auto 1fr;
+	grid-template-rows: 2ch 1fr;
+	row-gap: var(--spacing);
+	align-items: center;
 }
 /* - - - - - G R I D - - - - - */
 
 /* - - - - - S T Y L E S - - - - - */
 .GuideCard{
 	background-color: var(--darkviolet);
-	padding: var(--spacing);
+	padding: var(--padding);
+}
+.GuideCard h2{
+	grid-area: title;
+}
+.GuideCard p{
+	grid-area: description;
 }
 .GuideCard div{
 	background-color: lightgreen;
+	grid-area: icon;
 	height: 100px;
 	width: 100px;
 }

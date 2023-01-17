@@ -28,18 +28,18 @@ main, main section{
 	row-gap: var(--spacing);
 }
 .router{
-	display: flex;
 	align-items: center;
-	justify-content: center;
-	width: 3rem;
-	height: 3rem;
 	background-color: var(--green);
 	color: inherit;
+	display: flex;
 	font-size: 2em;
+	height: 3rem;
+	justify-content: center;
+	width: 3rem;
 }
 input, .router{
-	border: none;
 	border-radius: 5px;
+	border: none;
 }
 footer p{
 	text-align: center;
