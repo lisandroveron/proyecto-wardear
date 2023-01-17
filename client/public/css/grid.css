@@ -11,7 +11,7 @@ header{
 	flex-wrap: nowrap;
 	row-gap: var(--spacing);
 }
-header > section{
+header .tiles{
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -27,19 +27,20 @@ main, main section{
 	flex-wrap: nowrap;
 	row-gap: var(--spacing);
 }
-main .search{
-	display: grid;
-	grid-template-rows: auto;
-	grid-template-columns: 1fr auto;
-	column-gap: var(--spacing);
-}
-main .search input[type="button"]{
-	width: 3em;
-	height: 3em;
-	border: none;
+.router{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 3rem;
+	height: 3rem;
 	background-color: var(--green);
+	color: inherit;
+	font-size: 2em;
 }
-
+input, .router{
+	border: none;
+	border-radius: 5px;
+}
 footer p{
 	text-align: center;
 }

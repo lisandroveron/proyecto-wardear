@@ -35,7 +35,7 @@ header .legal-boilerplate input[type="button"]{
 header h1{
 	text-align: center;
 }
-header > .tiles > img{
+header .tiles > img{
 	height: 200px;
 }
 
