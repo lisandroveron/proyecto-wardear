@@ -19,7 +19,7 @@ app.listen(port, () => {
 
 app.use(express.json());
 app.use(express.static(join(__dirname, "build")));
-app.use("/assets", express.static(join(__dirname, "assets")));
+app.use("/static", express.static(join(__dirname, "static")));
 
 // HTTP Endpoints
 app.post("/login", (req, res) => {
@@ -39,7 +39,7 @@ app.post("/getAssets", (req, res) => {
 	const pattern = req.body.pattern;
 	const results = [];
 
-	glob(`assets/dragontail_lolassets/img/champion/${resource}/${pattern}`, (err, files) => {
+	glob(`static/assets/dragontail_lolassets/img/champion/${resource}/${pattern}`, (err, files) => {
 
 		if(err){
 			return console.error(err);
