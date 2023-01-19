@@ -22,13 +22,13 @@ function App(){
 	};
 
 	return(<>
+		<UserMenu />
 		<header>
 			<div className="legal-boilerplate">
-				<p>"Proyecto Wardear" no cuenta con el respaldo de Riot Games y no refleja los puntos de vista ni las opiniones de Riot Games ni de nadie involucrado oficialmente en la producción o administración de la propiedad de Riot Games. Riot Games y todas las propiedades asociadas son marcas comerciales o marcas comerciales registradas de Riot Games, Inc.</p>
 				<input type="button" value="X" onClick={removeParent} />
+				<p>"Proyecto Wardear" no cuenta con el respaldo de Riot Games y no refleja los puntos de vista ni las opiniones de Riot Games ni de nadie involucrado oficialmente en la producción o administración de la propiedad de Riot Games. Riot Games y todas las propiedades asociadas son marcas comerciales o marcas comerciales registradas de Riot Games, Inc.</p>
 			</div>
 			<h1>Proyecto Wardear</h1>
-			<UserMenu />
 		</header>
 		<main>
 			<BrowserRouter>
