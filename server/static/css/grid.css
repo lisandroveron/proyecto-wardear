@@ -1,10 +1,16 @@
 #root{
-	display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
+	display: grid;
+	grid-template-columns: 1fr auto;
+	grid-template-rows: auto 1fr auto;
+	grid-template-areas: "header usermenu"
+						 "main usermenu"
+						 "footer usermenu";
 	row-gap: calc(var(--spacing) * 2);
 }
 
+header{
+	grid-area: header;
+}
 header, main > *, #login{
 	display: flex;
 	flex-direction: column;
@@ -19,10 +25,15 @@ header .tiles{
 }
 
 main{
+	grid-area: main;
 	flex-grow: 1;
 }
 .router{
 	align-items: center;
 	display: flex;
 	justify-content: center;
+}
+
+footer{
+	grid-area: footer;
 }

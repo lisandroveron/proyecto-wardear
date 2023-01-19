@@ -10,7 +10,12 @@
 	--violet: rgba(49, 12, 77, 1);
 
 	/* Vars */
+	--icon-x1: 25px;
+	--icon-x2: calc(var(--icon-x1) * 2);
+	--icon-x3: calc(var(--icon-x1) * 3);
+	--icon-x4: calc(var(--icon-x1) * 4);
 	--padding: 10px;
+	--radius: 5px;
 	--spacing: 10px;
 }
 #root{
@@ -36,12 +41,17 @@ body .router{
 	width: 3rem;
 }
 body input, body .router{
-	border-radius: 5px;
+	border-radius: var(--radius);
 	border: none;
 }
 
 header .legal-boilerplate{
 	background-color: var(--red);
+	padding-right: calc(var(--padding) * 5);
+	text-align: justify;
+}
+header .legal-boilerplate input{
+	margin: 0 10px;
 }
 header .legal-boilerplate input[type="button"]{
 	background-color: transparent;
