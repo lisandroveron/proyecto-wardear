@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import store from "./redux/store.js";
-import {Provider} from "react-redux";
+import {Provider, useDispatch} from "react-redux";
 // Routes
 import Home from "./router/Home/Home.jsx";
 import GuideMaker from "./router/GuideMaker/GuideMaker.jsx";
@@ -10,6 +10,10 @@ import GuideMaker from "./router/GuideMaker/GuideMaker.jsx";
 import UserMenu from "./components/UserMenu/UserMenu.jsx";
 
 function App(){
+	const dispatch = useDispatch();
+
+	checkPlatform();
+
 	useEffect(() => {
 		
 	}, [
@@ -17,6 +21,13 @@ function App(){
 	]);
 
 	// Functions
+	function checkPlatform(){
+		const regexp = /android|iphone|kindle|ipad/i;
+		dispatch({
+			type: "isMobile/set",
+			payload: regexp.test(navigator.userAgent)
+		});
+	};
 	function removeParent(tag){
 		tag.target.parentElement.remove();
 	};
