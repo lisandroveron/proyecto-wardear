@@ -12,6 +12,6 @@ export const isMobileReducer = createSlice({
 	}
 });
 
-export const {toggle} = isMobileReducer.actions;
+export const {set} = isMobileReducer.actions;
 
 export default isMobileReducer.reducer;

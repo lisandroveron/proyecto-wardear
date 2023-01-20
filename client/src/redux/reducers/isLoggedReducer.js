@@ -7,11 +7,11 @@ export const isLoggedReducer = createSlice({
 	},
 	reducers: {
 		set: (state, action) => {
-			state.value = action.payload;
+			state.value = action.payload
 		},
 	}
 });
 
-export const {toggle} = isLoggedReducer.actions;
+export const {set} = isLoggedReducer.actions;
 
 export default isLoggedReducer.reducer;
