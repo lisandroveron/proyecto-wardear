@@ -18,9 +18,6 @@
 	--radius: 5px;
 	--spacing: 10px;
 }
-#root{
-	height: 100%;
-}
 body{
 	background-color: var(--background);
 	color: white;
@@ -43,6 +40,20 @@ body .router{
 body input, body .router{
 	border-radius: var(--radius);
 	border: none;
+}
+
+#root{
+	height: 100%;
+}
+#root > img{
+	border-bottom-left-radius: var(--radius);
+	border-top-left-radius: var(--radius);
+	height: var(--icon-x2);
+	justify-self: flex-end;
+	position: absolute;
+	top: 0;
+	width: var(--icon);
+	z-index: 100;
 }
 
 header .legal-boilerplate{
