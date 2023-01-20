@@ -1,53 +1,42 @@
-:root{
-	--usermenu: 200px;
-}
-#UserMenu{
+.UserMenu{
+	animation-name: menuHiding;
+	animation-delay: 0s;
+	animation-duration: 0.50s;
+	animation-fill-mode: forwards;
+	animation-timing-function: ease;
 	background-color: var(--background);
-	align-items: flex-end;
 	display: flex;
 	flex-direction: column;
-	grid-area: usermenu;
-	right: var(--padding);
-	position: sticky;
-	top: 0;
-}
-#UserMenu_menu{
-	animation-delay: 0s;
-	animation-duration: 0.25s;
-	animation-fill-mode: forwards;
-	animation-timing-function: linear;
-	overflow: hidden;
-	padding: var(--padding) 0px;
-	position: sticky;
-	top: calc(var(--icon-x2) + var(--spacing));
-	width: 0px;
-}
-#UserMenu img{
-	border-bottom-left-radius: var(--radius);
-	border-top-left-radius: var(--radius);
-	height: var(--icon-x2);
+	height: 100%;
+	padding: var(--padding);
 	position: absolute;
-	width: var(--icon);
-	top: 0;
+	width: 0;
+	right: -100%;
+}
+.UserMenu > :first-child{
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	top: calc(var(--icon-x2) + var(--spacing));
 }
 
-@keyframes show{
+@keyframes menuShowing{
 	from{
-		padding-left: 0px;
 		width: 0px;
+		right: -100%;
 	}
 	to{
-		padding-left: var(--padding);
-		width: var(--usermenu);
+		width: 100%;
+		right: 0;
 	}
 }
-@keyframes hide{
-	from {
-		padding-left: var(--padding);
-		width: var(--usermenu);
+@keyframes menuHiding{
+	from{
+		width: 100%;
+		right: 0;
 	}
 	to{
-		padding-left: 0px;
-		width: 0px;
+		width: 0;
+		right: -100%;
 	}
 }
