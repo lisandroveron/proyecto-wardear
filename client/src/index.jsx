@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import {BrowserRouter, Routes, Route} from "react-router-dom";
 import store from "./redux/store.js";
@@ -14,12 +14,6 @@ function App(){
 
 	checkPlatform();
 
-	useEffect(() => {
-		
-	}, [
-		// getAssets("tiles", "*_0.jpg", setPathTiles)
-	]);
-
 	// Functions
 	function checkPlatform(){
 		const regexp = /android|iphone|kindle|ipad/i;
@@ -33,6 +27,7 @@ function App(){
 	};
 
 	return(<>
+		<img src="/static/assets/icon/project.svg" alt="" onClick={() => {dispatch({type: "isMenuShowed/toggle"})}} />
 		<UserMenu />
 		<header>
 			<div className="legal-boilerplate">
@@ -61,26 +56,3 @@ root.render(
 		<App />
 	</Provider>
 );
-
-// const [path_tiles, setPathTiles] = useState([]);
-
-// function getAssets(resource, pattern, updateFunction){
-// 	fetch("/getAssets", {
-// 		method: "POST",
-// 		headers: {'Content-Type': 'application/json'},
-// 		body: JSON.stringify({
-// 			"resource": resource,
-// 			"pattern": pattern
-// 		})
-// 	})
-// 		.then(response => response.json())
-// 		.then(data => {
-// 			for(let path of data){
-// 				updateFunction(oldArray => [...oldArray, path]);
-// 			};
-// 		});
-// };
-
-// <div className="tiles">
-// 	{path_tiles.map((path, index) => <img key={`tile-${index}`} src={`/${path}`} alt="" />)}
-// </div>
