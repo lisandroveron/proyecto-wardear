@@ -1,17 +1,16 @@
 #root{
-	display: grid;
-	grid-template-columns: 1fr auto;
-	grid-template-rows: auto 1fr auto;
-	grid-template-areas: "header usermenu"
-						 "main usermenu"
-						 "footer usermenu";
+	display: flex;
+	flex-direction: column;
 	row-gap: calc(var(--spacing) * 2);
+}
+#root > img{
+	align-self: flex-end;
 }
 
 header{
 	grid-area: header;
 }
-header, main > *, #login{
+header, main > *{
 	display: flex;
 	flex-direction: column;
 	row-gap: var(--spacing);

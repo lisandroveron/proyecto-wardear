@@ -8,35 +8,40 @@
 	display: flex;
 	flex-direction: column;
 	height: 100%;
-	padding: var(--padding);
 	position: absolute;
-	width: 0;
-	right: -100%;
+	width: 0px;
+	right: 0;
+	overflow: hidden;
+	/* padding: var(--padding); */
+	align-items: center;
 }
 .UserMenu > :first-child{
-	display: flex;
-	flex-direction: column;
 	position: relative;
 	top: calc(var(--icon-x2) + var(--spacing));
+}
+.UserMenu > *{
+	width: 100%;
+	max-width: 400px;
+}
+.UserMenu form{
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--spacing);
 }
 
 @keyframes menuShowing{
 	from{
 		width: 0px;
-		right: -100%;
 	}
 	to{
 		width: 100%;
-		right: 0;
 	}
 }
 @keyframes menuHiding{
 	from{
 		width: 100%;
-		right: 0;
 	}
 	to{
 		width: 0;
-		right: -100%;
 	}
 }
