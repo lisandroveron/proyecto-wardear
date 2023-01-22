@@ -1,15 +1,17 @@
+// Packages
 require("dotenv").config();
 const express = require("express");
 const {MongoClient} = require("mongodb");
 const glob = require("glob");
 const { join } = require("path");
 
+// Initializations
 const app = express();
 const port = process.env.PORT || 5000;
 const client = new MongoClient(process.env.DATABASE_URL);
-// DATABASE
 initDB().catch(console.error);
 const db = client.db();
+
 // DATABASE COLLECTIONS
 const users = db.collection("users");
 
@@ -22,18 +24,6 @@ app.use(express.static(join(__dirname, "build")));
 app.use("/static", express.static(join(__dirname, "static")));
 
 // HTTP Endpoints
-app.post("/login", (req, res) => {
-	users.findOne({
-		username: req.body.username,
-		password: req.body.password,
-	}).then(promise => {
-		if(promise == null){
-			res.send({"verified": false});
-		}else{
-			res.send({"verified": true});
-		};
-	});
-});
 app.post("/getAssets", (req, res) => {
 	const resource = req.body.resource;
 	const pattern = req.body.pattern;
@@ -49,6 +39,37 @@ app.post("/getAssets", (req, res) => {
 			});
 		};
 		res.send(results);
+	});
+});
+app.post("/login", (req, res) => {
+	users.findOne({
+		username: req.body.username,
+		password: req.body.password,
+	}).then(promise => {
+		if(promise == null){
+			res.send({"success": false});
+		}else{
+			res.send({"success": true});
+		};
+	});
+});
+app.post("/signup", (req, res) => {
+	users.findOne({
+		username: req.body.username,
+		password: req.body.password,
+	}).then(promise => {
+		if(promise == null){
+			const session = client.startSession();
+			session.startTransaction();
+			users.insertOne(req.body);
+			session.commitTransaction();
+			session.endSession();
+			res.send({
+				"username": req.body.username,
+				"password": req.body.password,
+				"success": true
+			});
+		};
 	});
 });
 
