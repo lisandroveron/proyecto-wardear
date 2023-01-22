@@ -2,5 +2,5 @@ main section .search{
 	display: grid;
 	grid-template-rows: auto;
 	grid-template-columns: 1fr auto;
-	column-gap: var(--spacing);
+	column-gap: var(--gap);
 }

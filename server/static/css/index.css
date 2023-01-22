@@ -16,7 +16,7 @@
 	--icon-x4: calc(var(--icon-x1) * 4);
 	--padding: 10px;
 	--radius: 5px;
-	--spacing: 10px;
+	--gap: 10px;
 }
 body{
 	background-color: var(--background);

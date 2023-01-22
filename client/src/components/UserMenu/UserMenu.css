@@ -12,12 +12,10 @@
 	width: 0px;
 	right: 0;
 	overflow: hidden;
-	/* padding: var(--padding); */
+	padding-top: calc(var(--icon-x2) + var(--gap));
 	align-items: center;
-}
-.UserMenu > :first-child{
-	position: relative;
-	top: calc(var(--icon-x2) + var(--spacing));
+	text-align: center;
+	row-gap: var(--gap);
 }
 .UserMenu > *{
 	width: 100%;
@@ -26,7 +24,7 @@
 .UserMenu form{
 	display: flex;
 	flex-direction: column;
-	row-gap: var(--spacing);
+	row-gap: var(--gap);
 }
 
 @keyframes menuShowing{
