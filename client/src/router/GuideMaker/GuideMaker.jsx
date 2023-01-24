@@ -17,6 +17,8 @@ export default function GuideMaker(){
 		})
 			.then(response => response.json())
 			.then(data => {
+				console.log(JSON.parse(data.sections));
+				console.log(data.textarea);
 				setContent(data.textarea);
 			});
 	};
