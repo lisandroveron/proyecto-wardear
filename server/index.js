@@ -24,7 +24,40 @@ app.use(express.static(join(__dirname, "build")));
 app.use("/static", express.static(join(__dirname, "static")));
 
 // HTTP Endpoints
-app.post("/getAssets", (req, res) => {
+app.post("/createguide", (req, res) => {
+	const textarea = req.body.textarea;
+	const sections = [];
+	const textareaMatched = textarea.match(/^#+.+(\n[^#]+)?/gmu);
+	textareaMatched.forEach(item => {
+		const section = [];
+		const separated = item.match(/.+/gmu);
+		separated.forEach(item => {
+			if(item.startsWith("#")){
+				const markLength = item.match(/^#+/gmu)[0].length;
+				const title = item.slice(markLength+1);
+				section.push({
+					"type": `h${markLength}`,
+					"title": title
+				});
+			}else if(item.startsWith("--")){
+				const markLength = item.match(/^-+/gmu)[0].length;
+				const content = item.slice(markLength+1);
+				section.push({
+					"type": "li",
+					"content": content
+				});
+			}else{
+				section.push({
+					"type": "p",
+					"content": item
+				})
+			};
+		});
+		sections.push(section);
+	});
+	console.log(sections);
+});
+app.post("/getassets", (req, res) => {
 	const resource = req.body.resource;
 	const pattern = req.body.pattern;
 	const results = [];

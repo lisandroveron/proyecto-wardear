@@ -12,7 +12,7 @@ export default function GuideMaker(){
 			method: "POST",
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				content
+				"textarea": content
 			})
 		})
 			.then(response => response.json())
@@ -25,14 +25,14 @@ export default function GuideMaker(){
 		<NavLink to="/" className="router">←</NavLink>
 		<h2>Creador de guías</h2>
 		{
-			isLogged
-			? <>
-				<form onSubmit={createGuide}>
-					<textarea name="content" cols="30" rows="10" value={content} onChange={(event) => setContent(event.target.value)}></textarea>
-					<input type="submit" value="Guardar" />
-				</form>
-			</>
-			: <p>Tienes que iniciar sesión para crear una guía.</p>
+		isLogged
+		? <>
+			<form onSubmit={createGuide}>
+				<textarea name="content" cols="30" rows="10" value={content} onChange={(event) => setContent(event.target.value)}></textarea>
+				<input type="submit" value="Guardar" />
+			</form>
+		</>
+		: <p>Tienes que iniciar sesión para crear una guía.</p>
 		}
 	</>)
 };
