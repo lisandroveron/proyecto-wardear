@@ -37,7 +37,7 @@ app.post("/createguide", (req, res) => {
 				const title = item.slice(markLength+1);
 				section.push({
 					"type": `h${markLength}`,
-					"title": title
+					"content": title
 				});
 			}else if(item.startsWith("--")){
 				const markLength = item.match(/^-+/gmu)[0].length;
@@ -55,7 +55,10 @@ app.post("/createguide", (req, res) => {
 		});
 		sections.push(section);
 	});
-	console.log(sections);
+	res.send({
+		"textarea": textarea,
+		"sections": JSON.stringify(sections)
+	});
 });
 app.post("/getassets", (req, res) => {
 	const resource = req.body.resource;
