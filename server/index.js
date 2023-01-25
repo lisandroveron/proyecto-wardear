@@ -14,6 +14,7 @@ const db = client.db();
 
 // DATABASE COLLECTIONS
 const users = db.collection("users");
+const guides = db.collection("guides");
 
 app.listen(port, () => {
 	console.log(`Listening on port ${port}.`);
@@ -26,15 +27,19 @@ app.use("/static", express.static(join(__dirname, "static")));
 // HTTP Endpoints
 app.post("/createguide", (req, res) => {
 	const textarea = req.body.textarea;
-	const sections = [];
+	const guide = {};
+	const section = [];
 	const textareaMatched = textarea.match(/^#+.+(\n[^#]+)?/gmu);
 	textareaMatched.forEach(item => {
-		const section = [];
 		const separated = item.match(/.+/gmu);
-		separated.forEach(item => {
+		separated.forEach((item, index) => {
 			if(item.startsWith("#")){
 				const markLength = item.match(/^#+/gmu)[0].length;
 				const title = item.slice(markLength+1);
+				if(markLength === 1){
+					guide.title = title;
+					guide.resume = separated[index+1];
+				}
 				section.push({
 					"type": `h${markLength}`,
 					"content": title
@@ -53,11 +58,17 @@ app.post("/createguide", (req, res) => {
 				})
 			};
 		});
-		sections.push(section);
 	});
+	guide.post = section;
+	const session = client.startSession();
+	session.startTransaction();
+	guides.insertOne(guide);
+	session.commitTransaction();
+	session.endSession();
 	res.send({
+		"success": true,
 		"textarea": textarea,
-		"sections": JSON.stringify(sections)
+		"guide": guide
 	});
 });
 app.post("/getassets", (req, res) => {
