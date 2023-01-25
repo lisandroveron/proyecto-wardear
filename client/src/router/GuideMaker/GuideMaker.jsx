@@ -5,6 +5,7 @@ import {useSelector} from "react-redux";
 export default function GuideMaker(){
 	const isLogged = useSelector(state => state.isLogged.value);
 	const [content, setContent] = useState("");
+	const [guideCreated, setGuideCreated] = useState(false);
 
 	function createGuide(event){
 		event.preventDefault();
@@ -17,8 +18,7 @@ export default function GuideMaker(){
 		})
 			.then(response => response.json())
 			.then(data => {
-				console.log(JSON.parse(data.sections));
-				console.log(data.textarea);
+				data.success && setGuideCreated(data.success);
 				setContent(data.textarea);
 			});
 	};
@@ -33,8 +33,31 @@ export default function GuideMaker(){
 				<textarea name="content" cols="30" rows="10" value={content} onChange={(event) => setContent(event.target.value)}></textarea>
 				<input type="submit" value="Guardar" />
 			</form>
+			{
+			guideCreated && <p>Guía creada con éxito.</p>
+			}
 		</>
 		: <p>Tienes que iniciar sesión para crear una guía.</p>
 		}
 	</>)
 };
+
+/*
+import React, {useState} from "react";
+
+const [guide, setGuide] = useState([]);
+
+setGuide(data.guide.post);
+
+<article>
+{
+	guide.map((item, index) => 
+		React.createElement(
+			`${item.type}`,
+			{key: `section-${index}`},
+			`${item.content}`
+		)	
+	)
+}
+</article>
+*/
