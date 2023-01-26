@@ -4,6 +4,8 @@ import {useSelector} from "react-redux";
 
 export default function GuideMaker(){
 	const isLogged = useSelector(state => state.isLogged.value);
+	const password = useSelector(state => state.password.value);
+	const username = useSelector(state => state.username.value);
 	const [content, setContent] = useState("");
 	const [guideCreated, setGuideCreated] = useState(false);
 
@@ -13,7 +15,9 @@ export default function GuideMaker(){
 			method: "POST",
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
-				"textarea": content
+				"password": password,
+				"textarea": content,
+				"username": username
 			})
 		})
 			.then(response => response.json())
