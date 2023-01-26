@@ -74,7 +74,7 @@ app.post("/createguide", (req, res) => {
 				"password": password,
 				"username": username,
 			}, {$push: {
-				posts: guide._id
+				guides: guide._id
 			}});
 			session.commitTransaction();
 			session.endSession();
