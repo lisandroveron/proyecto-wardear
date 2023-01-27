@@ -111,7 +111,6 @@ app.post("/getassets", (req, res) => {
 app.post("/getsummary", (req, res) => {
 	guides.find().sort({_id: -1}).limit(10).toArray()
 		.then(promise => {
-			console.log(promise);
 			res.send(promise);
 		});
 });
