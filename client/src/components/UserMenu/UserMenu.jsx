@@ -23,10 +23,14 @@ export default function UserMenu(){
 		})
 			.then(response => response.json())
 			.then(body => {
-				dispatch({
-					type: "isLogged/set",
-					payload: body.success
-				});
+				if(body.success){
+					dispatch({
+						type: "isLogged/set",
+						payload: body.success
+					});
+				}else{
+					alert("El usuario o contraseña es incorrecto.");
+				};
 			});
 	};
 	function signup(event){
