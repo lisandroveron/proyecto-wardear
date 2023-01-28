@@ -6,6 +6,7 @@ import {Provider, useDispatch} from "react-redux";
 // Routes
 import Home from "./router/Home/Home.jsx";
 import GuideMaker from "./router/GuideMaker/GuideMaker.jsx";
+import GuideReader from "./router/GuideReader/GuideReader.jsx";
 // Components
 import UserMenu from "./components/UserMenu/UserMenu.jsx";
 
@@ -40,7 +41,8 @@ function App(){
 			<BrowserRouter>
 				<Routes>
 					<Route exact path="/" element={<Home />} />
-					<Route exact path="/GuideMaker" element={<GuideMaker />} />
+					<Route exact path="GuideMaker" element={<GuideMaker />} />
+					<Route exact path="GuideReader" element={<GuideReader />} />
 				</Routes>
 			</BrowserRouter>
 		</main>
