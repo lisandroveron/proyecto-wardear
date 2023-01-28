@@ -1,7 +1,7 @@
 // Packages
 require("dotenv").config();
 const express = require("express");
-const {MongoClient} = require("mongodb");
+const {MongoClient, ObjectId} = require("mongodb");
 const glob = require("glob");
 const { join } = require("path");
 
@@ -108,10 +108,24 @@ app.post("/getassets", (req, res) => {
 		res.send(results);
 	});
 });
+app.post("/getguide", (req, res) => {
+	guides.findOne({"_id": new ObjectId(req.body.id)})
+		.then(guide => {
+			res.send(guide.guide);
+		});
+});
 app.post("/getsummary", (req, res) => {
 	guides.find().sort({_id: -1}).limit(10).toArray()
 		.then(promise => {
-			res.send(promise);
+			summary = [];
+			promise.forEach(item => {
+				summary.push({
+					"description": item.description,
+					"id": item._id,
+					"title": item.title,
+				});
+			});
+			res.send(summary);
 		});
 });
 app.post("/login", (req, res) => {
