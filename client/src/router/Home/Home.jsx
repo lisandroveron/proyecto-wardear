@@ -22,11 +22,12 @@ export default function Home(){
 		<h2>Guías</h2>
 		<div className="search">
 			<input type="search" />
-			<NavLink to="/GuideMaker" className="router">+</NavLink>
+			<NavLink to="GuideMaker" className="router">+</NavLink>
 		</div>
 		{
 		guideDescription.map((item, index) => 
 			<GuideCard 
+				id={item.id}
 				title={item.title} 
 				description={item.description} 
 				key={`GuideCard-${index}`} 
