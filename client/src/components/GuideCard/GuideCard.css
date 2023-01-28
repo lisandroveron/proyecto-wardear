@@ -15,8 +15,10 @@
 	background-color: var(--darkviolet);
 	padding: var(--padding);
 }
-.GuideCard h2{
+.GuideCard a:first-child{
 	grid-area: title;
+	font-size: 2rem;
+	font-weight: bold;
 }
 .GuideCard p{
 	grid-area: description;
