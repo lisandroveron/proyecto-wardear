@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {NavLink, useLocation} from "react-router-dom";
+import "./GuideReader.css";
 
 export default function GuideReader(props){
 	const [guide, setGuide] = useState([]);
@@ -19,14 +20,15 @@ export default function GuideReader(props){
 			});
 	}, [state]);
 
-	return(<article>
+	return(<>
 		<NavLink to="/" className="router">←</NavLink>
+		<article className="GuideReader">
 		{
 		guide.map((item, index) => React.createElement(
 			`${item.type}`,
 			{key: `guide_element-${index}`},
-			`${item.content}`)
-		)
+			`${item.content}`))
 		}
-	</article>);
+		</article>
+	</>);
 };
