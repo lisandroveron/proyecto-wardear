@@ -9,6 +9,8 @@
 	--red: rgba(232, 64, 64, 1);
 	--violet: rgba(49, 12, 77, 1);
 
+	--lightgreen: rgba(51, 209, 122, 1);
+
 	--background: var(--black);
 	--link: var(--green);
 	/* Vars */
@@ -28,6 +30,7 @@ body{
 }
 body a{
 	text-decoration: none;
+	color: var(--lightgreen);
 }
 body input[type="search"]{
 	padding: var(--padding);
