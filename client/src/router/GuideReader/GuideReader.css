@@ -1,3 +1,9 @@
+.GuideReader{
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--gap);
+	padding: var(--padding);
+}
 .GuideReader h1, .GuideReader h1+p{
 	text-align: center;
 }
