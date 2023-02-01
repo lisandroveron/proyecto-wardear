@@ -11,8 +11,10 @@
   "author": "lisandroveron",
   "license": "GPL-2.0",
   "dependencies": {
+    "connect-mongo": "^4.6.0",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "express-session": "^1.17.3",
     "glob": "^8.0.3",
     "mongodb": "^4.13.0"
   },
