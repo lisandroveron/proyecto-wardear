@@ -1,6 +1,8 @@
 // Packages
 require("dotenv").config();
 const express = require("express");
+const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const {MongoClient, ObjectId} = require("mongodb");
 const glob = require("glob");
 const { join } = require("path");
@@ -11,18 +13,32 @@ const port = process.env.PORT || 5000;
 const client = new MongoClient(process.env.DATABASE_URL);
 initDB().catch(console.error);
 const db = client.db();
-
-// DATABASE COLLECTIONS
-const users = db.collection("users");
-const guides = db.collection("guides");
-
 app.listen(port, () => {
 	console.log(`Listening on port ${port}.`);
 });
 
+// DATABASE COLLECTIONS
+const users = db.collection("users");
+const guides = db.collection("guides");
+const sessions = db.collection("sessions");
+
+
+// Middlewares
 app.use(express.json());
 app.use(express.static(join(__dirname, "build")));
 app.use("/static", express.static(join(__dirname, "static")));
+app.use(session({
+	secret: process.env.SESSION_SECRET,
+	resave: false,
+	saveUninitialized: true,
+	store: MongoStore.create({
+		client,
+		collectionName: "sessions",
+	}),
+	cookie: {
+		maxAge: 1000 * 60 * 60 * 24,
+	},
+}));
 
 // HTTP Endpoints
 app.post("/createguide", (req, res) => {
@@ -67,8 +83,8 @@ app.post("/createguide", (req, res) => {
 				});
 			});
 			guide.guide = section;
-			const session = client.startSession();
-			session.startTransaction();
+			const mongoSession = client.startSession();
+			mongoSession.startTransaction();
 			guides.insertOne(guide);
 			users.updateOne({
 				"password": password,
@@ -76,8 +92,8 @@ app.post("/createguide", (req, res) => {
 			}, {$push: {
 				guides: guide._id
 			}});
-			session.commitTransaction();
-			session.endSession();
+			mongoSession.commitTransaction();
+			mongoSession.endSession();
 			res.send({
 				"success": true,
 				"textarea": textarea,
@@ -146,15 +162,15 @@ app.post("/signup", (req, res) => {
 		password: req.body.password,
 	}).then(promise => {
 		if(promise == null){
-			const session = client.startSession();
-			session.startTransaction();
+			const mongoSession = client.startSession();
+			mongoSession.startTransaction();
 			users.insertOne({
 				"username": req.body.username,
 				"password": req.body.password,
 				"guides": [],
 			});
-			session.commitTransaction();
-			session.endSession();
+			mongoSession.commitTransaction();
+			mongoSession.endSession();
 			res.send({
 				"username": req.body.username,
 				"password": req.body.password,
