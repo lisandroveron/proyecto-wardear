@@ -23,14 +23,36 @@ export default function UserMenu(){
 		})
 			.then(response => response.json())
 			.then(body => {
-				if(body.success){
+				if(body.isLogged){
 					dispatch({
 						type: "isLogged/set",
-						payload: body.success
+						payload: body.isLogged
+					});
+					dispatch({
+						type: "password/set",
+						payload: "",
 					});
 				}else{
 					alert("El usuario o contraseña es incorrecto.");
 				};
+			});
+	};
+	function logout(event){
+		event.preventDefault();
+		fetch("/logout", {
+			method: "POST",
+			headers: {'Content-Type': 'application/json'},
+		})
+			.then(response => response.json())
+			.then(body => {
+				dispatch({
+					type: "username/set",
+					payload: "",
+				});
+				dispatch({
+					type: "isLogged/set",
+					payload: body.isLogged
+				});
 			});
 	};
 	function signup(event){
@@ -45,14 +67,6 @@ export default function UserMenu(){
 		})
 		.then(response => response.json())
 		.then(body => {
-			dispatch({
-				type: "username/set",
-				payload: body.username
-			});
-			dispatch({
-				type: "password/set",
-				payload: body.password
-			});
 			dispatch({
 				type: "isLogged/set",
 				payload: body.success
@@ -70,10 +84,7 @@ export default function UserMenu(){
 	isLogged
 	?<>
 		<p>Hola, {username}</p>
-		<p><span onClick={() => dispatch({
-			type: "isLogged/set",
-			payload: false
-		})}>Cerrar sesión</span></p>
+		<p><span onClick={logout}>Cerrar sesión</span></p>
 	</>
 	: isSigningUp
 		?<>
