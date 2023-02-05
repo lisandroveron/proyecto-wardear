@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {NavLink} from "react-router-dom";
 import {useSelector} from "react-redux";
+import "./GuideMaker.css";
 
 export default function GuideMaker(){
 	const isLogged = useSelector(state => state.isLogged.value);
@@ -27,7 +28,7 @@ export default function GuideMaker(){
 			});
 	};
 
-	return(<>
+	return(<div className="GuideMaker">
 		<NavLink to="/" className="router">←</NavLink>
 		<h2>Creador de guías</h2>
 		{
@@ -43,7 +44,7 @@ export default function GuideMaker(){
 		</>
 		: <p>Tienes que iniciar sesión para crear una guía.</p>
 		}
-	</>)
+	</div>)
 };
 
 /*
