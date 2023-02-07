@@ -1,5 +1,6 @@
 :root{
 	/* Colours */
+	--darkblue: rgba(36, 31, 49, 1);
 	--darkgreen: rgba(35, 76, 58, 1);
 	--darkviolet: rgba(19, 17, 54, 1);
 	
@@ -11,7 +12,7 @@
 
 	--lightgreen: rgba(51, 209, 122, 1);
 
-	--background: var(--black);
+	--background: var(--darkblue);
 	--link: var(--green);
 	/* Vars */
 	--icon-x1: 25px;
@@ -32,19 +33,17 @@ body a{
 	text-decoration: none;
 	color: var(--lightgreen);
 }
-body input[type="search"]{
+body input{
 	padding: var(--padding);
+	border-radius: var(--radius);
+	border: 1px solid var(--lightgreen);
+	background-color: inherit;
+	color: inherit;
 }
 body .router{
-	background-color: var(--green);
-	color: inherit;
 	font-size: 2em;
 	height: 3rem;
 	width: 3rem;
-}
-body input, body .router{
-	border-radius: var(--radius);
-	border: none;
 }
 body p span{
 	color: var(--link);
@@ -86,9 +85,6 @@ header #login{
 }
 header h1{
 	text-align: center;
-}
-header .tiles > img{
-	height: 200px;
 }
 
 footer p{
