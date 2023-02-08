@@ -28,6 +28,7 @@ body{
 	color: white;
 	margin: auto;
 	width: 95%;
+	padding: var(--padding);
 }
 body a{
 	text-decoration: none;
