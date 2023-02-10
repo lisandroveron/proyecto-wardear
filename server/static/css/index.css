@@ -1,18 +1,19 @@
 :root{
 	/* Colours */
-	--darkblue: rgba(36, 31, 49, 1);
-	--darkgreen: rgba(35, 76, 58, 1);
-	--darkviolet: rgba(19, 17, 54, 1);
+	--darkblue: rgb(36, 31, 49);
+	--darkgreen: rgb(35, 76, 58);
+	--darkviolet: rgb(19, 17, 54);
 	
-	--black: rgba(17, 17, 17, 1);
-	--blue: rgba(64, 87, 232, 1);
-	--green: rgba(16, 181, 27, 1);
-	--red: rgba(232, 64, 64, 1);
-	--violet: rgba(49, 12, 77, 1);
+	--black: rgb(17, 17, 17);
+	--blue: rgb(64, 87, 232);
+	--green: rgb(16, 181, 27);
+	--red: rgb(232, 64, 64);
+	--violet: rgb(49, 12, 77);
 
-	--lightgreen: rgba(51, 209, 122, 1);
+	--lightgreen: rgb(51, 209, 122);
 
 	--background: var(--darkblue);
+	--foreground: var(--lightgreen);
 	--link: var(--green);
 	/* Vars */
 	--icon-x1: 25px;
@@ -30,26 +31,29 @@ body{
 	width: 95%;
 	padding: var(--padding);
 }
-body a{
+a{
 	text-decoration: none;
-	color: var(--lightgreen);
+	color: var(--foreground);
 }
-body input{
+input{
 	padding: var(--padding);
 	border-radius: var(--radius);
-	border: 1px solid var(--lightgreen);
+	border: 1px solid var(--foreground);
 	background-color: inherit;
 	color: inherit;
 }
-body .router{
+input[type="submit"]:hover{
+	background-color: var(--foreground);
+}
+.router{
 	font-size: 2em;
 	height: 3rem;
 	width: 3rem;
 }
-body p span{
+p span{
 	color: var(--link);
 }
-body p span:hover{
+p span:hover{
 	color: inherit;
 	cursor: pointer;
 }
