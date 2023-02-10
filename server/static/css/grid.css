@@ -7,6 +7,12 @@
 	align-self: flex-end;
 }
 
+form{
+	display: flex;
+	flex-direction: column;
+	row-gap: var(--gap);
+}
+
 header{
 	grid-area: header;
 }

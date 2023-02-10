@@ -21,11 +21,6 @@
 	width: 100%;
 	max-width: 400px;
 }
-.UserMenu form{
-	display: flex;
-	flex-direction: column;
-	row-gap: var(--gap);
-}
 
 @keyframes menuShowing{
 	from{
