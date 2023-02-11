@@ -1,3 +1,10 @@
 .GuideMaker{
-	text-align: center;
+	align-items: center;
+}
+
+.GuideMaker .router{
+	align-self: start;
+}
+.GuideMaker form{
+	width: 100%;
 }
