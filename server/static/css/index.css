@@ -46,6 +46,8 @@ input[type="submit"]:hover{
 	background-color: var(--foreground);
 }
 .router{
+	border: 1px solid var(--foreground);
+	border-radius: var(--radius);
 	font-size: 2em;
 	height: 3rem;
 	width: 3rem;
