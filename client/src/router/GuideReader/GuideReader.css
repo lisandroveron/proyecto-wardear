@@ -7,3 +7,11 @@
 .GuideReader h1, .GuideReader h1+p{
 	text-align: center;
 }
+.GuideReader h1,
+.GuideReader h2,
+.GuideReader h3,
+.GuideReader h4,
+.GuideReader h5,
+.GuideReader h6{
+	color: var(--lightgreen);
+}
