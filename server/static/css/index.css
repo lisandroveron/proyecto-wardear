@@ -53,7 +53,7 @@ input[type="submit"]:hover{
 	width: 3rem;
 }
 p span{
-	color: var(--link);
+	color: var(--foreground);
 }
 p span:hover{
 	color: inherit;
