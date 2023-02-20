@@ -182,6 +182,10 @@ app.post("/signup", (req, res) => {
 			res.send({
 				"success": true,
 			});
+		}else{
+			res.send({
+				"success": false,
+			});
 		};
 	});
 });

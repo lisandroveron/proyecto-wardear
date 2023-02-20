@@ -67,10 +67,12 @@ export default function UserMenu(){
 		})
 		.then(response => response.json())
 		.then(body => {
-			dispatch({
+			body.success
+			? dispatch({
 				type: "isLogged/set",
 				payload: body.success
-			});
+			})
+			: alert("El usuario ya existe");
 		});
 	};
 
