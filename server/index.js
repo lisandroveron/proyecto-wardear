@@ -7,7 +7,6 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const forge = require("node-forge");
 const {MongoClient, ObjectId} = require("mongodb");
-const glob = require("glob");
 const { join } = require("path");
 
 // Initializations
@@ -107,23 +106,6 @@ app.post("/createguide", (req, res) => {
 		"success": true,
 		"textarea": textarea,
 		"guide": guide,
-	});
-});
-app.post("/getassets", (req, res) => {
-	const resource = req.body.resource;
-	const pattern = req.body.pattern;
-	const results = [];
-
-	glob(`static/assets/dragontail_lolassets/img/champion/${resource}/${pattern}`, (err, files) => {
-
-		if(err){
-			return console.error(err);
-		}else{
-			files.forEach(file => {
-				results.push(file);
-			});
-		};
-		res.send(results);
 	});
 });
 app.post("/getguide", (req, res) => {
